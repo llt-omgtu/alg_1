@@ -9,7 +9,7 @@ for i, c in enumerate(a):
         tmp.append(c)
 q = 0
 for i in tmp:
-    q += i
+    q *= i
 
 print(q / len(tmp))
 """
@@ -18,7 +18,6 @@ print(q / len(tmp))
 a = [1, 2, 3]
 b = [2, 2, 2, 4, 2, 2, 45, 2, 2, 2, 45]
 c = 0
-tmp = 0
 n = []
 for i in b:
     if i == 2:
@@ -56,7 +55,6 @@ print("В списке нет чётного элемента")
 # 5 Выдать количество нечётных элементов расположенных между минимальным и максимального элементов в списке
 """
 a = [19, 0, 2, 4, 5, 3, 20]
-tmp = []
 c = 0
 if a.index(max(a)) > a.index(min(a)):
     for i in range(a.index(min(a)), a.index(max(a))):
