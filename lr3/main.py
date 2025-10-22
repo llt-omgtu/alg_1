@@ -14,28 +14,39 @@ for i in tmp:
 print(q / len(tmp))
 """
 # 2. Найти минимальных размер подпоследовательности состоящих из двоек
-"""
-a = [1, 2, 3]
-b = [2, 2, 2, 4, 2, 2, 45, 2, 2, 2, 45]
+
+a = [3,3,2]
+a = [2, 2, 2, 4, 2, 2, 45, 2, 2, 2, 45]
 c = 0
 n = []
-for i in b:
+z = []
+for i in a:
     if i == 2:
         c += 1
     else:
         n.append(c)
         c = 0
+if c != 0:
+    n.append(c)
 
-print(min(n))
-"""
+for i in n:
+    if i != 0:
+       z.append(i)
+
+print(min(z))
+
+
+
 # 3. Определить среднее арифметическое элементов оканчивающихся на тройку
 """
 a = [1, 2, 3, 4, 13]
 tmp = []
+q = 0
 for c in a:
     if str(c).endswith('3'):
         tmp.append(c)
-q = 0
+if len(tmp) == 0: print("В списке нету чисел, оканчивающихся на тройку");exit(0)
+
 for i in tmp:
     q += i
 
@@ -68,4 +79,3 @@ if a.index(max(a)) < a.index(min(a)):
 
 print(c)
 """
-
