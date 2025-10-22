@@ -1,11 +1,4 @@
-"""
-for i in range(int(input())):
-    q1 = str(input()).split(' ')
-    q2 = str(input()).split(' ')
-    s11 = int(q1[0]) * int(q1[1]) * int(q1[2]) / 1000  # * int(q1[6])
-    s12 = int(q1[3]) * int(q1[4]) * int(q1[5]) / 1000  # * int(q1[7])
-    print(s11, s12)
-"""
+
 import os
 for a in range(len(os.listdir('./inputs'))):
     with open(f'./inputs/{os.listdir('./inputs')[a]}', 'r') as f:
