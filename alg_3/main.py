@@ -25,15 +25,15 @@ N K Z
 3 6 1
 3 4 2
 """
-MaxN = int(input())
+mN = int(input())
 
-tot = 0
+tmp = 0
 z = 1
 while True:
     d = (2 ** z) - 1
-    if d > MaxN:
+    if d > mN:
         break
-    tot += MaxN // d
+    tmp += mN // d
     z += 1
 
-print(tot)
+print(tmp)
