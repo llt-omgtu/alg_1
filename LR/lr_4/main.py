@@ -22,13 +22,13 @@ print(pc)
 # 3. Номера строк, в которых элементы упорядочены по убыванию
 dr = []
 for i, r in enumerate(mat):
-    is_decreasing = True
+    flag = True
     for j in range(len(r) - 1):
         if not (r[j] > r[j+1]):
-            is_decreasing = False
+            flag = False
             break
 
-    if is_decreasing:
+    if flag:
         dr.append(i)
 
 print(dr)
