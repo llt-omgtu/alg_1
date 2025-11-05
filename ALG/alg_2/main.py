@@ -1,7 +1,6 @@
-
 import os
-for a in range(len(os.listdir('./inputs'))):
-    with open(f'./inputs/{os.listdir('./inputs')[a]}', 'r') as f:
+for a in range(len(os.listdir('inputs'))):
+    with open(f'./inputs/{os.listdir('inputs')[a]}', 'r') as f:
         n = int(f.readline().strip())
         firms = []
         for _ in range(n):
@@ -31,9 +30,9 @@ for a in range(len(os.listdir('./inputs'))):
             cost = milk
             comp = idx
 
-    print(f"{comp} {cost:.2f} ==== {os.listdir('./inputs')[a]}")
+    print(f"{comp} {cost:.2f} ==== {os.listdir('inputs')[a]}")
 
 print(f"========================OUTPUT======================================")
-for a in range(len(os.listdir('./outputs'))):
-    with open(f'./outputs/{os.listdir('./outputs')[a]}', 'r') as f:
-        print(f"{f.readline()} ==== {os.listdir('./outputs')[a]}")
+for a in range(len(os.listdir('outputs'))):
+    with open(f'./outputs/{os.listdir('outputs')[a]}', 'r') as f:
+        print(f"{f.readline()} ==== {os.listdir('outputs')[a]}")
