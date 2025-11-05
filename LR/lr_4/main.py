@@ -1,26 +1,34 @@
-def process_matrix(matrix):
-    m = len(matrix)
-    n = len(matrix[0]) if m > 0 else 0
-
-    # Найти сумму в каждой строке
-    row_sums = [sum(row) for row in matrix]
-    print("Суммы строк:", row_sums)
-
-    # Количество столбцов, в которых сумма больше 0
-    positive_columns = sum(1 for col in zip(*matrix) if sum(col) > 0)
-    print("Кол-во столбцов с суммой > 0:", positive_columns)
-
-    # Номера строк, в которых элементы упорядочены по убыванию
-    decreasing_rows = [
-        i for i, row in enumerate(matrix)
-        if all(row[j] > row[j + 1] for j in range(len(row) - 1))
-    ]
-    print("Номера строк с убывающими элементами:", decreasing_rows)
-
-
-matrix = [
+mat = [
     [5, 3, 1],
     [2, 4, 6],
     [9, 7, 5]
 ]
-process_matrix(matrix)
+
+# 1. Найти сумму в каждой строке
+rs = []
+for r in mat:
+    rs.append(sum(r))
+
+print(rs)
+
+# 2. Количество столбцов, в которых сумма больше 0
+pc = 0
+for c in zip(*mat):
+    if sum(c) > 0:
+        pc += 1
+
+print(pc)
+
+# 3. Номера строк, в которых элементы упорядочены по убыванию
+dr = []
+for i, r in enumerate(mat):
+    is_decreasing = True
+    for j in range(len(r) - 1):
+        if not (r[j] > r[j+1]):
+            is_decreasing = False
+            break
+
+    if is_decreasing:
+        dr.append(i)
+
+print(dr)

@@ -25,45 +25,13 @@ N K Z
 3 6 1
 3 4 2
 """
-"""
-mN = int(input())
+max_n = int(input())
+result = 0
+tmp = 1
 
-tmp = 0
-z = 1
-while True:
-    d = (2 ** z) - 1
+while tmp <= max_n:
+    result += max_n // tmp
+    tmp = tmp * 2 + 1
 
+print(result)
 
-print(tmp)
-"""
-
-"""
-tmp = 0
-for n in range(1, int(input()) + 1):
-    if n == 1:
-        print(n, n)
-        tmp += 1
-        continue
-
-    for k in range(n, (n * 2) + 1):
-        m = (n * 2) / k
-        if int(m) * k == n * 2:
-            print(n, k, m)
-            tmp += 1
-"""
-
-"""
-tmp = 0
-ww = 3
-for x in range(1, (ww * 2) + 1):
-    if x == 1:
-        tmp += 1
-        continue
-
-    for y in range(2, x + 1):
-        if x % y == 0 and x != y:
-            print(x, y, )
-            tmp += 1
-
-print(tmp)
-"""
