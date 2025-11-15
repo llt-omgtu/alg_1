@@ -1,7 +1,6 @@
 nums = []
 
 
-def in
 while True:
     try:
         num = int(input("Введите число (0 для окончания ввода): "))
