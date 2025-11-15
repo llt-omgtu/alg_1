@@ -1,68 +1,48 @@
-# Имеется список их n элементов
+nums = []
 
-# 1. Определить произведение элементов, которые стоят, на нечётных местах, с точки зрения пользователя
-a, tmp = [1, 2, 3], []
-for i, c in enumerate(a):
-    if (i + 1) % 2 != 0:
-        tmp.append(c)
-q = 0
-for i in tmp:
-    q *= i
 
-print(q / len(tmp))
-# 2. Найти минимальных размер подпоследовательности состоящих из двоек
-a, n, z = [2, 2, 2, 4, 2, 2, 45, 2, 2, 2, 45], [], []
-c = 0
+def in
+while True:
+    try:
+        num = int(input("Введите число (0 для окончания ввода): "))
+        if num == 0:
+            break
+        nums.append(num)
+    except ValueError:
+        print("Некорректный ввод. Пожалуйста, введите целое число.")
+        continue
 
-for i in a:
-    if i == 2:
-        c += 1
-    else:
-        n.append(c)
-        c = 0
-if c != 0:
-    n.append(c)
 
-for i in n:
-    if i != 0:
-       z.append(i)
-if len(z) != 0:
-    print(min(z))
+# 1. Все ли элементы положительные
+all_pos = all(num > 0 for num in nums)
+print(f"1. Все ли элементы положительные: {all_pos}")
+
+count_mult_3 = 0
+for num in nums:
+    l_digit = abs(num) % 10
+    if l_digit % 3 == 0:
+        count_mult_3 += 1
+print(f"2. Количество элементов, оканчивающихся на цифру, кратную 3: {count_mult_3}")
+
+# 3. Второй максимальный элемент
+if len(nums) < 2:
+    print("3. Недостаточно элементов для определения второго максимального.")
 else:
-    print("Ничего нет")
-# 3. Определить среднее арифметическое элементов оканчивающихся на тройку
-a = [1, 2, 3, 4, 13]
-tmp = []
-q = 0
-for c in a:
-    if str(c).endswith('3'):
-        tmp.append(c)
-if len(tmp) == 0: print("В списке нету чисел, оканчивающихся на тройку");exit(0)
+    uniq_sorted_nums = sorted(list(set(nums)), reverse=True)
+    if len(uniq_sorted_nums) < 2:
+        print("3. Недостаточно уникальных элементов для определения второго максимального.")
+    else:
+        sec_max = uniq_sorted_nums[1]
+        print(f"3. Второй максимальный элемент: {sec_max}")
 
-for i in tmp:
-    q += i
-
-print(q / len(tmp))
-# 4. Определить имеется ли в списке чётный элемент
-a = [1, 3]
-b = [2, 5]
-for c in a:
-    if c % 2 == 0:
-        print("Имеется чётный элемент")
-        exit(0)
-        
-print("В списке нет чётного элемента")
-# 5 Выдать количество нечётных элементов расположенных между минимальным и максимального элементов в списке
-a = [19, 0, 2, 4, 5, 3, 20]
-c = 0
-if a.index(max(a)) > a.index(min(a)):
-    for i in range(a.index(min(a)), a.index(max(a))):
-        if a[i] % 2 != 0:
-            c += 1
-
-if a.index(max(a)) < a.index(min(a)):
-    for i in range(a.index(max(a)), a.index(min(a))):
-        if a[i] % 2 != 0:
-            c += 1
-
-print(c)
+# 4. Произведение элементов, которые оканчиваются на 1 и положительные
+prod_pos_ends_1 = 1
+found_pos_ends_1 = False
+for num in nums:
+    if num > 0 and num % 10 == 1:
+        prod_pos_ends_1 *= num
+        found_pos_ends_1 = True
+if found_pos_ends_1:
+    print(f"4. Произведение элементов, оканчивающихся на 1 и положительных: {prod_pos_ends_1}")
+else:
+    print("4. Нет положительных элементов, оканчивающихся на 1.")

@@ -1,60 +1,34 @@
-# Матрица N * N,
-# 1. Определить номера столбцов с однинаковыми элементами
-import math
+mat = [
+    [5, 3, 1],
+    [2, 4, 6],
+    [9, 7, 5]
+]
 
-def www(x, start):
-    a = []
-    tmp = None
-    for z, q in enumerate(x[start:]):
-        if tmp is None:
-            tmp = q
-        if tmp == q:
-            a.append(z + start)
-    if len(a) != 1:
-        print(a)
+# 1. Найти сумму в каждой строке
+rs = []
+for r in mat:
+    rs.append(sum(r))
 
+print(rs)
 
+# 2. Количество столбцов, в которых сумма больше 0
+pc = 0
+for c in zip(*mat):
+    if sum(c) > 0:
+        pc += 1
 
-matrix = [[1, 2, 0, 2, 3],
-          [2, 2, 2, 2, 3],
-          [0, 2, 1, 2, 4],
-          [1, 2, 1, 2, 5]]
+print(pc)
 
-columns = list(map(list, zip(*matrix)))
+# 3. Номера строк, в которых элементы упорядочены по убыванию
+dr = []
+for i, r in enumerate(mat):
+    flag = True
+    for j in range(len(r) - 1):
+        if not (r[j] > r[j+1]):
+            flag = False
+            break
 
-cc = []
-for i in range(len(columns)):
-    cc.append([str(columns[i]).count('0'), sum(columns[i]), math.prod(columns[i])])
+    if flag:
+        dr.append(i)
 
-for i in range(len(cc)):
-    www(cc, i)
-
-# 2. Определить положение элементов значение которых является минимальный строке и максимальным столбце на пересечение которых на пересечение которых они стоят (или наоборот)
-matrix = [[1, 2, 1],
-          [6, 7, 7],
-          [2, 9, 1]]
-
-columns = list(map(list, zip(*matrix)))
-
-for i in range(len(matrix)):
-    for y in range(len(columns)):
-        if max(matrix[i]) == min(columns[y]):
-            print(i + 1, y + 1)
-
-
-
-# 3. Матрица квадратная, определить является ли она магическим квадратом
-matrix = [[1, 2, 3],
-          [3, 1, 2],
-          [2, 3, 1]]
-
-columns = list(map(list, zip(*matrix)))
-
-for i in range(len(matrix)):
-    if sum(matrix[i]) == sum(columns[i]):
-        continue
-    else:
-        print("Не равно")
-        exit(0)
-
-print("Равно")
+print(dr)

@@ -1,34 +1,30 @@
-mat = [
-    [5, 3, 1],
-    [2, 4, 6],
-    [9, 7, 5]
-]
+from collections import Counter
 
-# 1. Найти сумму в каждой строке
-rs = []
-for r in mat:
-    rs.append(sum(r))
+l = [1, -2, 3, 10, -5, 6]
+m = 3
 
-print(rs)
+# 1. Наибольшую сумму цепочки из m элементов
+ms = []
+for i in range(len(l) - m + 1):
+    ms.append(sum(l[i:i+m]))
 
-# 2. Количество столбцов, в которых сумма больше 0
-pc = 0
-for c in zip(*mat):
-    if sum(c) > 0:
-        pc += 1
+print(max(ms))
 
-print(pc)
+# 2. Частота появления каждого элемента
+print(dict(Counter(l)))
 
-# 3. Номера строк, в которых элементы упорядочены по убыванию
-dr = []
-for i, r in enumerate(mat):
-    flag = True
-    for j in range(len(r) - 1):
-        if not (r[j] > r[j+1]):
-            flag = False
-            break
+# 3. Определить элементы встречающиеся 1 раз
+uniq = []
+for k, v in Counter(l).items():
+    if v == 1:
+        uniq.append(k)
 
-    if flag:
-        dr.append(i)
+print(uniq)
 
-print(dr)
+# 4. Определить наибольшую сумму из элементов
+curr = glob = l[0]
+for x in l[1:]:
+    curr = max(x, curr + x)
+    glob = max(glob, curr)
+
+print(glob)
