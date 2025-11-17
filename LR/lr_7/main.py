@@ -39,6 +39,7 @@ print(" ".join(q))
 """
 
 # 4. В строке определить наибольшую цепочку из одинаковых символов
+"""
 strok = 'aaaabbbwwwaaaaa'
 
 c = 0
@@ -57,7 +58,7 @@ for i in strok:
 
 s.update({c: tmp * (c + 1)})
 print(max(s.keys()), s.get(max(s.keys())))
-
+"""
 
 
 
