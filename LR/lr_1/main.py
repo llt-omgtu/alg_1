@@ -1,12 +1,15 @@
 # 1. Определить сумму отрицательный элементов
+
 sum = 0
 for i in range(int(input("Количество элементов: "))):
     num =+ int(input(f"Элемент номер {i + 1}: "))
     if num < 0:
         sum += num
-        
+
 print(sum)
+
 # 2. Определить минимальное значение среди положительных элементов
+
 min_z = None
 for i in range(int(input("Количество элементов: "))):
     num = + int(input(f"Элемент номер {i + 1}: "))
@@ -14,24 +17,31 @@ for i in range(int(input("Количество элементов: "))):
         min_z = num
 
 print(min_z)
+
 # 3. Определить образует ли элементы равномерно убывающие последовательность
+
 razn = None
-tmp = None
-for i in range(int(input("Количество элементов: "))):
-    num = + int(input(f"Элемент номер {i + 1}: "))
-    if tmp is None:
-        tmp = num
-        continue
+a = []
+while True:
+    inp = int(input(f"Введите элемент: "))
+    if inp == 0:
+        break
+    a.append(inp)
+
+if a[0] > a[1]:
+    for i in range(len(a)):
+        if razn is None:
+            razn = a[i] - a[i + 1]
+            continue
+
+        if razn == a[i] - a[i - 1]:
+            print("Последовательность убывает не равномерно!")
+            exit(0)
         
-    if razn is None:
-        razn = tmp - num
-        continue
-        
-    if razn != tmp - num:
-        print("Последовательность убывает не равномерно!")
-        exit(0)
-        
-print("Последовательность равномерна")
+    print("Последовательность равномерна")
+else:
+    print("Последовательность неверна")
+
 # 4. Определить количество локальных минимумов
 
 n = int(input("Количество элементов: "))
@@ -51,7 +61,6 @@ else:
             print(b)
     a, b = b, c
 print(f"Кол-во локальных переменных: {count}")
-
 
 # 5. Определить второй минимальный элемент
 
