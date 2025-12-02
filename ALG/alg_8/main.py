@@ -38,7 +38,6 @@ def form_eval(st, qq, x):
         st = eval(str(st) + i.replace('x', str(c)))
     return st
 
-
 a = []
 for i in sorted(os.listdir("Отгадай число")):
     if i.startswith('input'):
