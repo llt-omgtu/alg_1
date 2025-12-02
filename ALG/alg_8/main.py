@@ -32,10 +32,10 @@ def deparser(file):
         result = tmp[-1]
         return arg, result
 
-# -10000+ 7* 2- 14* 3
+
 def form_eval(st, qq, x):
     for i in qq:
-        st = eval(str(st) + i.replace('x', str(c)))
+        st = eval(str(st) + i.replace('x', str(x)))
     return st
 
 a = []
